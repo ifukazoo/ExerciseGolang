@@ -28,16 +28,9 @@ func CreateIndex(dir string) {
 			if f, err = os.OpenFile(path, os.O_RDWR|os.O_CREATE, 0644); err != nil {
 				goto fail
 			}
-			var (
-				written int
-				offset  int64
-			)
-			for offset < int64(len(bytes)) {
-				if written, err = f.WriteAt(bytes[offset:], offset); err != nil {
-					f.Close()
-					goto fail
-				}
-				offset += int64(written)
+			if _, err = f.Write(bytes); err != nil {
+				f.Close()
+				goto fail
 			}
 			f.Close()
 		} else {
