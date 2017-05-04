@@ -8,11 +8,16 @@ import (
 	"strconv"
 )
 
+// URLPrefix :api prefix
 const URLPrefix = "https://xkcd.com/"
+
+// URLSuffix :api suffix
 const URLSuffix = "/info.0.json"
 
+// MaxIndex :コミックのオフラインインデックスの最大値(推測)
 const MaxIndex = 2000
 
+// CreateIndex :コミックのオフラインインデックスを作成する
 func CreateIndex(dir string) {
 	for i := 1; i < MaxIndex; i++ {
 		path := dir + "/" + strconv.Itoa(i)

@@ -22,6 +22,7 @@ func init() {
 	}
 }
 
+// Info コミックのデータ
 type Info struct {
 	Month      string
 	Num        int
